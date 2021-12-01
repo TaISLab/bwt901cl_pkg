@@ -4,7 +4,9 @@
   <name>bwt901cl_pkg</name>
   <version>0.0.0</version>
   <description>Package for using sensor module BWT901CL</description>
-  <maintainer email="dorebom.b@gmail.com">dorebom</maintainer>
+
+  <maintainer email="manolofc@gmail.com">Manuel Fernandez-Carmona</maintainer>
+  <author email="dorebom.b@gmail.com">dorebom</author>
   <license>MIT License</license>
 
   <depend>rclpy</depend>

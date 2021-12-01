@@ -1,8 +1,8 @@
 # bwt901cl_pkg
 
-IMUセンサのひとつであるBWT901CLをROS2で使うためのpackageです．
+This package publishes data from BWT901CL, an IMU sensor, into ROS2.
 
-### 構成
+### contents
 
 - package: bwt901cl_pkg
     - node: imu_bwt901cl(publisher type)
@@ -18,17 +18,17 @@ IMUセンサのひとつであるBWT901CLをROS2で使うためのpackageです�
 colcon build --packages-select bwt901cl_pkg
 ```
 
-### run
+### running
 
 ```
 ros2 run bwt901cl_pkg imu_bwt901cl
 ```
 
-### 注意点
+### Warning
 
-- BWT901CLをchmodで実行できるようにしていないと，`permission dennied`が出る．
+- Your user should belong to `dialout` group, otherwise you may not have access to device `/dev/ttyUSB*`．
 
-# 参考ページ
+# Further reading
 
 https://github.com/WITMOTION/BWT901CL
 
