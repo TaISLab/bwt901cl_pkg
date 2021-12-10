@@ -14,14 +14,16 @@ class Imu901cl(Node):
         self.pub_tmp = self.create_publisher(Temperature, '/sensor/bwt901cl/Temperature', 10)
         self.pub_ang = self.create_publisher(Vector3, '/sensor/bwt901cl/Angle', 10)
         self.tmr = self.create_timer(time_interval, self.timer_callback)
-        subprocess.call("sudo chmod 777 /dev/ttyUSB0", shell=True)
-        self.imu_sensor =  BWT901CL("/dev/ttyUSB0")
+        #subprocess.call("sudo chmod 777 /dev/ttyUSB0", shell=True)
+        self.imu_sensor =  BWT901CL("/dev/witmotion")
 
     def timer_callback(self):
         msg_imu = Imu()
         msg_mag = MagneticField()
         msg_tmp = Temperature()
         msg_ang = Vector3()
+
+        msg_imu.header.frame_id =  msg_mag.header.frame_id =  msg_tmp.header.frame_id =  'witmotion' 
 
         angle, angular_velocity, accel, temp, magnetic, quaternion, time = self.imu_sensor.getData()
 
