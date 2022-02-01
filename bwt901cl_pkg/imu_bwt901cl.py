@@ -25,9 +25,9 @@ class Imu901cl(Node):
 
         # TODO this is a crappy hack... again
         small_value = 0.0001
-        dummy_cov = [small_value, 0,           0, 
-                     0,           small_value, 0, 
-                     0,           0,           small_value]        
+        dummy_cov = [small_value, 0.0,         0.0, 
+                     0.0,         small_value, 0.0, 
+                     0.0,         0.0,         small_value]        
         self.msg_imu.orientation_covariance = self.msg_imu.angular_velocity_covariance = self.msg_imu.linear_acceleration_covariance = dummy_cov
 
     def timer_callback(self):
