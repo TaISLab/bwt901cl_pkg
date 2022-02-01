@@ -24,7 +24,8 @@ class Imu901cl(Node):
         msg_ang = Vector3()
 
         msg_imu.header.frame_id =  msg_mag.header.frame_id =  msg_tmp.header.frame_id =  'witmotion' 
-
+        msg_imu.header.stamp =  msg_mag.header.stamp =  msg_tmp.header.stamp =  self.get_clock().now().to_msg()
+        
         angle, angular_velocity, accel, temp, magnetic, quaternion, time = self.imu_sensor.getData()
 
         msg_tmp.temperature = temp
